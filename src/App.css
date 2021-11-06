@@ -5,3 +5,7 @@
   align-items: center;
   width: 80vw;
 }
+
+li {
+  list-style: none;
+}
