@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import Robot from "./components/Robot";
+import RobotsList from "./components/RobotsList";
 import useRobots from "./hook/useRobots";
 
 function App(robots) {
@@ -17,13 +17,7 @@ function App(robots) {
           <h1>Robotitos chachis</h1>
         </header>
         <main>
-          <div className="App">
-            {robots.map(({ robot }) => (
-              <li key="">
-                <Robot />
-              </li>
-            ))}
-          </div>
+          <RobotsList />
         </main>
       </div>
     </>
