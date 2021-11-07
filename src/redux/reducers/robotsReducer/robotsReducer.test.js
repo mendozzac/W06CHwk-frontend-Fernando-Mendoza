@@ -32,4 +32,19 @@ describe("Given a robotsReducer reducer", () => {
       expect(newRobotsList).toEqual(initialList);
     });
   });
+  describe("When it recibes a empty initial value and a loadRobot action", () => {
+    test("Then it should return a robot array with the given ID", () => {
+      const initialList = [];
+      const robot = [
+        {
+          _id: "1",
+          name: "Fredy",
+          image: "url",
+        },
+      ];
+      const action = loadRobotsAction(robot);
+      const newState = robotsReducer(initialList, action);
+      expect(newState.length).toBeGreaterThan(0);
+    });
+  });
 });
