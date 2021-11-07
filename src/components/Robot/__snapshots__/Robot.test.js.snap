@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Robot component When it receives an object robot Then it should render the robot 1`] = `
+<li>
+  <div
+    className="robot-box"
+  >
+    <img
+      alt="robot"
+      height="200px"
+      src="plastic"
+      width="200px"
+    />
+    <p>
+      Fredy
+    </p>
+    <p>
+      Velocidad: 
+      5
+    </p>
+    <p>
+      Resistencia: 
+    </p>
+  </div>
+</li>
+`;
