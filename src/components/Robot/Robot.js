@@ -7,6 +7,7 @@ const Robot = ({ robot }) => {
           <p>{robot.name}</p>
           <p>Velocidad: {robot.features.speed}</p>
           <p>Resistencia: {robot.features.stamina}</p>
+          <p>Fecha de creación: {robot.features.date}</p>
         </div>
       </li>
     </>
