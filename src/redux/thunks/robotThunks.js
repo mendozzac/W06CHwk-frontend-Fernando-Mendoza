@@ -9,3 +9,10 @@ export const loadRobotsThunk = () => {
     dispatch(loadRobotsAction(data));
   };
 };
+
+export const loadRobotByIdThunk = (id) => {
+  return async (dispatch) => {
+    const { data } = await axios.get(`${apiUrl}${id}`);
+    dispatch(loadRobotsAction(data));
+  };
+};
