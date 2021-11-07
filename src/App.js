@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import "./App.css";
-import RobotsList from "./components/RobotsList";
+import RobotsList from "./components/RobotList/RobotsList";
 import useRobots from "./hook/useRobots";
 
-function App(robots) {
+function App() {
   const { loadRobots } = useRobots();
 
   useEffect(() => {
