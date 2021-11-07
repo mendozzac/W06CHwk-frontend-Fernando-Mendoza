@@ -1,5 +1,5 @@
-import useRobots from "../hook/useRobots";
-import Robot from "./Robot";
+import useRobots from "../../hook/useRobots";
+import Robot from "../Robot/Robot";
 
 const RobotsList = () => {
   const { robots } = useRobots();
