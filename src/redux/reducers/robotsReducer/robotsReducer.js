@@ -10,6 +10,9 @@ const robotsReducer = (robots = [], action) => {
     case actionTypes.loadRobotById:
       newRobots = [action.robot];
       break;
+    case actionTypes.createRobot:
+      newRobots = [...robots, action.robot];
+      break;
     default:
       newRobots = robots;
   }
