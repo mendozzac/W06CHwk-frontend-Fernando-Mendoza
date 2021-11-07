@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
+import RobotForm from "./components/RobotForm/RobotForm";
 import RobotsList from "./components/RobotList/RobotsList";
 import useRobots from "./hook/useRobots";
 
@@ -17,6 +18,7 @@ function App() {
           <h1>Robotitos chachis</h1>
         </header>
         <main>
+          <RobotForm />
           <RobotsList />
         </main>
       </div>
