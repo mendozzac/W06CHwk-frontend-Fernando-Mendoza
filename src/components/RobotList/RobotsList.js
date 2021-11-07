@@ -4,11 +4,11 @@ import Robot from "../Robot/Robot";
 const RobotsList = () => {
   const { robots } = useRobots();
   return (
-    <div className="robots-list">
+    <ul className="robots-list">
       {robots.map((robot) => (
         <Robot robot={robot} key={robot._id} />
       ))}
-    </div>
+    </ul>
   );
 };
 
