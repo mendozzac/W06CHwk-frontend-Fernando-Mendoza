@@ -65,10 +65,10 @@ const RobotForm = () => {
       },
     };
     createRobot(newRobot, apiUrl);
+    console.log(newRobot);
 
     resetForm();
   };
-
   return (
     <div className="form-create-box">
       <form
@@ -121,7 +121,7 @@ const RobotForm = () => {
           onChange={changeDataFeatures}
           required
         />
-        <button disabled={isDisabled}>Crear</button>
+        <button onClick={isDisabled}>Crear</button>
       </form>
     </div>
   );
