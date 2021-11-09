@@ -20,20 +20,17 @@ const LoginForm = () => {
       ...userData,
       [event.target.id]: event.target.value,
     });
-    console.log(userData);
   };
 
   useEffect(() => {
     if (isAuth) {
       navigate("/robots");
     }
-    console.log(isAuth);
   });
 
   const onSubmit = (event) => {
     event.preventDefault();
     loginUser(userData);
-    console.log(loginUser);
   };
 
   return (
