@@ -1,41 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import useUser from "../../hook/useUser";
+import "./LoginForm.css";
 
 const LoginForm = () => {
   const initialUser = {
-    username: "",
+    name: "",
     password: "",
   };
 
   const [userData, setUserData] = useState(initialUser);
+  const isAuth = useSelector(({ user }) => user.isAuthenticated);
+  const { loginUser } = useUser();
+  const navigate = useNavigate();
 
   const changeUserData = (event) => {
     setUserData({
       ...userData,
       [event.target.id]: event.target.value,
     });
+    console.log(userData);
   };
-  // const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/robots");
+    }
+    console.log(isAuth);
+  });
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setUserData(initialUser); // navigate("/logout");
+    loginUser(userData);
+    console.log(loginUser);
   };
 
   return (
-    <form autoComplete="off" noValidate onSubmit={onSubmit}>
+    <form className="form" autoComplete="off" noValidate onSubmit={onSubmit}>
+      <label htmlFor="name">Nombre</label>
       <input
         type="text"
-        id="username"
-        value={userData.usernaem}
+        id="name"
+        value={userData.name}
         onChange={changeUserData}
       />
+      <label htmlFor="password">Contraseña</label>
       <input
         type="text"
         id="password"
-        value={userData.usernaem}
+        value={userData.password}
         onChange={changeUserData}
       />
-      <button>Login</button>
+      <button className="button">Login</button>
     </form>
   );
 };
