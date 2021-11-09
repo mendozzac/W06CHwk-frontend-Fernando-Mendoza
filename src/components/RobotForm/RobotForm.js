@@ -43,6 +43,7 @@ const RobotForm = () => {
       ...robot,
       features: { ...robot.features, [event.target.id]: event.target.value },
     });
+    checkForm();
   };
 
   const resetForm = () => {
@@ -52,12 +53,12 @@ const RobotForm = () => {
 
   const onCreateRobot = (event) => {
     event.preventDefault();
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = process.env.REACT_APP_API_URL_TO_CREATE;
     const newRobot = {
       name: robot.name,
       image: robot.image
         ? robot.image
-        : "https://comprarpegatinas.com/images/stories/virtuemart/product/pegatinas/robot_6.png",
+        : "https://cdn.pixabay.com/photo/2013/07/13/13/41/robot-161367_960_720.png",
       features: {
         speed: robot.features.speed,
         stamina: robot.features.stamina,
@@ -65,7 +66,6 @@ const RobotForm = () => {
       },
     };
     createRobot(newRobot, apiUrl);
-    console.log(newRobot);
 
     resetForm();
   };
@@ -93,6 +93,7 @@ const RobotForm = () => {
           value={robot.image}
           placeholder="Aquí la url de la fotito"
           onChange={changeData}
+          required
         />
         <label htmlFor="speed">Velocidad</label>
         <input
@@ -121,7 +122,7 @@ const RobotForm = () => {
           onChange={changeDataFeatures}
           required
         />
-        <button onClick={isDisabled}>Crear</button>
+        <button disabled={isDisabled}>Crear</button>
       </form>
     </div>
   );

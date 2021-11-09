@@ -1,28 +1,23 @@
-import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import LoginForm from "./components/LoginForm/LoginForm";
-import RobotForm from "./components/RobotForm/RobotForm";
-import RobotsList from "./components/RobotList/RobotsList";
-import useRobots from "./hook/useRobots";
+import RobotsPage from "./pages/RobotsPage";
 
 function App() {
-  const { loadRobots } = useRobots();
-
-  useEffect(() => {
-    loadRobots();
-  }, [loadRobots]);
-
   return (
     <>
       <div className="container">
-        <header>
-          <h1>Robotitos chachis</h1>
-        </header>
-        <main>
-          <LoginForm />
-          <RobotForm />
-          <RobotsList />
-        </main>
+        <Router>
+          <header>
+            <h1>Robotitos chachis</h1>
+          </header>
+          <main>
+            <Routes>
+              <Route element={<LoginForm />} path="/users" />
+              <Route element={<RobotsPage />} path="/robots" exact />
+            </Routes>
+          </main>
+        </Router>
       </div>
     </>
   );
